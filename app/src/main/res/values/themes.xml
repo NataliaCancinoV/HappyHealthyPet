@@ -1,0 +1,20 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.HappyHealthyPet" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/l_primary</item>
+        <item name="colorPrimaryDark">@color/l_primary_dark</item>
+        <item name="colorAccent">@color/l_accent</item>
+        <item name="colorSurface">@color/l_surface</item>
+        <item name="colorOnSurface">@color/l_primary_dark</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/l_primary</item>
+        <item name="colorPrimaryDark">@color/l_primary_dark</item>
+        <item name="colorAccent">@color/l_accent</item>
+        <item name="colorSurface">@color/l_surface</item>
+        <item name="colorOnSurface">@color/l_primary_dark</item>
+    </style>
+
+    <style name="Theme.HappyHealthyPet" parent="Base.Theme.HappyHealthyPet" />
+</resources>

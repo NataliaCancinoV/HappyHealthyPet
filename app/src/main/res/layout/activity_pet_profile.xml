@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PetProfileActivity"
+    android:background="@color/pink">
+
+    <LinearLayout
+        android:id="@+id/linear_registro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/linear_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15sp"
+                android:layout_marginBottom="5dp"
+                app:srcCompat="@drawable/arrow_left"
+                android:background="@android:color/transparent"/>
+
+            <TextView
+                android:id="@+id/tv_mascota"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_mascota_mascota"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:textSize="27sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="220dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/dog" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="350dp"
+        android:layout_height="599dp"
+        android:layout_below="@+id/linear_registro"
+        android:layout_marginTop="19dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/rl_register_style">
+
+        <TextView
+            android:id="@+id/tv_nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_nombre_mascota"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"/>
+        <EditText
+            android:id="@+id/et_nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/et_style"
+            android:layout_below="@+id/tv_nombre"
+            android:hint="@string/et_hint_nombre_mascota"
+            android:padding="15dp" />
+
+        <TextView
+            android:id="@+id/tv_edad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_edad_mascota"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginLeft="30dp"
+            android:layout_below="@id/et_nombre"/>
+        <EditText
+            android:id="@+id/et_edad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_edad"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/et_style"
+            android:hint="@string/et_hint_edad_mascota"
+            android:inputType="number"
+            android:padding="15dp" />
+
+        <TextView
+            android:id="@+id/tv_raza"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_raza_mascota"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginLeft="30dp"
+            android:layout_below="@id/et_edad"/>
+        <EditText
+            android:id="@+id/et_contrasena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_raza"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/et_style"
+            android:hint="@string/et_hint_raza_mascota"
+            android:padding="15dp"/>
+
+        <TextView
+            android:id="@+id/tv_sexo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_sexo_mascota"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginLeft="30dp"
+            android:layout_below="@id/et_contrasena"/>
+        <EditText
+            android:id="@+id/et_sexo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_sexo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/et_style"
+            android:hint="@string/et_hint_sexo_mascota"
+            android:padding="15dp" />
+
+        <TextView
+            android:id="@+id/tv_fecha_nacimiento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_fecha_nacimiento_mascota"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginLeft="30dp"
+            android:layout_below="@id/et_sexo"/>
+        <EditText
+            android:id="@+id/et_fecha_nacimiento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_fecha_nacimiento"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:inputType="date"
+            android:background="@drawable/et_style"
+            android:hint="@string/et_hint_nacimiento_mascota"
+            android:padding="15dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/et_fecha_nacimiento"
+            android:layout_marginTop="23dp"
+            android:layout_alignStart="@+id/et_fecha_nacimiento">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/plus_circle"
+                android:background="@android:color/transparent"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/pencil"
+                android:layout_marginLeft="170dp"
+                android:background="@android:color/transparent"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/trash_can"
+                android:layout_marginLeft="23dp"
+                android:background="@android:color/transparent"/>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</RelativeLayout>

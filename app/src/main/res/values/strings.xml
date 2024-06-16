@@ -1,0 +1,90 @@
+<resources>
+    <string name="app_name">HappyHealthyPet</string>
+
+    <!-- activity_splash -->
+    <string name="tv_splash">Happy Healthy Pet</string>
+
+    <!-- activity_login-->
+    <string name="et_hint_correo_login">Correo electrónico</string>
+    <string name="et_hint_contrasena_login">Contraseña</string>
+    <string name="et_olvido_contrasena_login">¿Olvidó su contraseña?</string>
+    <string name="btn_iniciar_sesion_login">INICIAR SESION</string>
+    <string name="tv_no_cuenta_login">¿No tiene una cuenta?</string>
+    <string name="tv_registrarse_login">Registrate</string>
+
+    <!-- activity_register-->
+    <string name="tv_registro">Registro</string>
+    <string name="et_hint_nombre_registro">Nombre</string>
+    <string name="et_hint_correo_registro">Correo electrónico</string>
+    <string name="et_hint_contrasena_registro">Contraseña</string>
+    <string name="et_hint_confirmar_contrasena_registro">Confirmar contraseña</string>
+    <string name="btn_registrarse_registro">REGISTRARSE</string>
+
+    <!-- activity_main -->
+    <string name="tv_principal">Mascotas</string>
+    <string name="tv_mascotas_principal">Mascota</string>
+    <string name="tv_medicinas_pendientes_principal">Medicinas pendientes:</string>
+    <string name="tv_vacunas_pendientes_principal">Vacunas pendientes:</string>
+
+    <!-- activity_pet -->
+    <string name="tv_mascota_mascota">Mascota</string>
+    <string name="tv_nombre_mascota">Nombre</string>
+    <string name="et_hint_nombre_mascota">Nombre de la mascota</string>
+    <string name="tv_edad_mascota">Edad</string>
+    <string name="et_hint_edad_mascota">Edad #</string>
+    <string name="tv_raza_mascota">Raza</string>
+    <string name="et_hint_raza_mascota">Nombre de la raza</string>
+    <string name="tv_sexo_mascota">Sexo</string>
+    <string name="et_hint_sexo_mascota">Hembra o macho</string>
+    <string name="tv_fecha_nacimiento_mascota">Fecha de nacimiento</string>
+    <string name="et_hint_nacimiento_mascota">00/00/0000</string>
+
+    <!-- menu -->
+    <string name="tv_inicio_menu">Inicio</string>
+    <string name="tv_perfil_menu">Perfil</string>
+    <string name="tv_cerrar_sesion_menu">Cerrar Sesión</string>
+
+    <!-- activity_medicine -->
+    <string name="tv_medicamentos">Medicamentos</string>
+    <string name="tv_fecha_medicamentos">Fecha:</string>
+    <string name="tv_horario_medicamentos">Horario:</string>
+
+    <!-- activity_vaccine -->
+    <string name="tv_fecha_vacunas">Fecha:</string>
+    <string name="tv_horario_vacunas">Horario:</string>
+
+    <!-- activity_food -->
+    <string name="tv_comida">Mi mascota puede comer...?</string>
+    <string name="tv_hint_buscar_comida">Buscar</string>
+
+    <!-- activity_croquettes -->
+    <string name="tv_croquetas">Croquetas Recomendadas</string>
+
+    <!-- activity_profile -->
+    <string name="tv_perfil">Nombre Perfil</string>
+    <string name="tv_nombre_perfil">Nombre del Perfil</string>
+    <string name="et_hint_nombre_perfil">Nombre perfil</string>
+    <string name="tv_correo_perfil">Correo electronico asociado</string>
+    <string name="et_hint_correo_perfil">example@example.com</string>
+    <string name="tv_mascotas_asociadas_perfil">Mascotas asociadas</string>
+    <string name="tv_tipo_suscripcion_perfil">Tipo de suscripcion</string>
+    <string name="tv_suscripcion_perfil">Huellita de piedra</string>
+
+    <!-- navigation drawer -->
+    <string name="tv_nav_hhp">Happy Healthy Pet</string>
+    <string name="item_nav_home">Inicio</string>
+    <string name="item_nav_profile">Perfil</string>
+    <string name="item_nav_logout">Cerrar Sesión</string>
+    <string name="open_nav">Open Navigation Drawer</string>
+    <string name="close_nav">Close Navigation Drawer</string>
+    <string name="toast_logout">Cerrando Sesion</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- fragments -->
+    <string name="tv_frag_home">Home Fragment</string>
+    <string name="tv_frag_profile">Profile Fragment</string>
+
+
+</resources>

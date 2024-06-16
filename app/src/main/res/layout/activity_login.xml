@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:background="@color/pink">
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="253dp"
+        android:layout_height="224dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="60dp"
+        android:src="@drawable/logo_fondo_claro" />
+
+    <LinearLayout
+        android:id="@+id/linear_contenedor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@id/iv_logo"
+        android:background="@drawable/rl_login_style">
+
+        <EditText
+            android:id="@+id/et_correo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_centerHorizontal="true"
+            android:padding="20dp"
+            android:background="@drawable/et_style"
+            android:inputType="textEmailAddress"
+            android:layout_below="@id/iv_logo"
+            android:hint="@string/et_hint_correo_login"/>
+
+            <EditText
+                android:id="@+id/et_contrasena"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="25dp"
+                android:layout_centerHorizontal="true"
+                android:padding="20dp"
+                android:background="@drawable/et_style"
+                android:inputType="textPassword"
+                android:layout_below="@id/et_correo"
+                android:hint="@string/et_hint_contrasena_login"/>
+
+            <TextView
+                android:id="@+id/tv_olvido_contrasena"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="250dp"
+                android:layout_marginBottom="40dp"
+                android:layout_below="@id/et_contrasena"
+                android:text="@string/et_olvido_contrasena_login"
+                android:textStyle="italic"/>
+
+            <Button
+                android:id="@+id/btn_iniciar_sesion"
+                android:layout_width="325dp"
+                android:layout_height="55dp"
+                android:layout_below="@id/tv_olvido_contrasena"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/btn_iniciar_sesion_login" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btn_iniciar_sesion"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal|bottom">
+
+                <TextView
+                    android:id="@+id/tv_no_cuenta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="90dp"
+                    android:text="@string/tv_no_cuenta_login" />
+
+                <TextView
+                    android:id="@+id/tv_registrate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/tv_registrarse_login"
+                    android:textStyle="italic|bold" />
+
+            </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
