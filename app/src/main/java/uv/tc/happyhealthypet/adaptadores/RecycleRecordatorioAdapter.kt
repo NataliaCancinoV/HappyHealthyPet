@@ -17,6 +17,7 @@ class RecycleRecordatorioAdapter(var lista: ArrayList<Recordatorio>, var bool: B
         var fechaRecordatorio: EditText = itemView.findViewById(R.id.et_fecha_recordatorio_recycler_recuperada)
         var horarioRecordatorio: EditText = itemView.findViewById(R.id.et_horario_recordatorio_recycler_recuperada)
         var btnEditar: ImageButton = itemView.findViewById(R.id.img_btn_edit)
+        var nombreMascotaRecordatorio : EditText = itemView.findViewById(R.id.et_nombre_recordatorio_recycler_recuperada)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -33,13 +34,15 @@ class RecycleRecordatorioAdapter(var lista: ArrayList<Recordatorio>, var bool: B
         holder.nombreRecordatorio.setText(recordatorio.nombreRecordatorio)
         holder.fechaRecordatorio.setText(recordatorio.fecha)
         holder.horarioRecordatorio.setText(recordatorio.horario)
+        holder.nombreMascotaRecordatorio.setText(recordatorio.mascotaAsociada)
 
         holder.nombreRecordatorio.isEnabled=bool
         holder.fechaRecordatorio.isEnabled=bool
         holder.horarioRecordatorio.isEnabled=bool
+        holder.nombreMascotaRecordatorio.isEnabled=bool
 
         holder.btnEditar.setOnClickListener{
-            listener.clicEditarRecordatorio(position)
+            listener.clicEditarRecordatorio(position, holder.nombreRecordatorio.text.toString(), holder.fechaRecordatorio.text.toString(), holder.horarioRecordatorio.text.toString(), holder.nombreMascotaRecordatorio.text.toString())
         }
     }
 }

@@ -80,10 +80,10 @@ class RecordatoriosDB(context: Context):SQLiteOpenHelper(context, NOMBRE_BD,null
     }
 
     @SuppressLint("Range")
-    fun obtenerRecordatorios(correo: String) : List<Recordatorio> {
-        val misMascotas = mutableListOf<Recordatorio>()
+    fun obtenerRecordatorios(correo: String, tipoRecordatorio : String ) : ArrayList<Recordatorio> {
+        val misMascotas = ArrayList<Recordatorio>()
         val db = readableDatabase
-        val resultadoConsulta : Cursor = db.query(NOMBRE_TABLA, null, "$COL_CORREO_USUARIO=?", arrayOf(correo), null, null, null)
+        val resultadoConsulta : Cursor = db.query(NOMBRE_TABLA, null, "$COL_CORREO_USUARIO=? AND $COL_TIPO_RECORDATORIO=?", arrayOf(correo,tipoRecordatorio), null, null, null)
         if (resultadoConsulta != null){
             while (resultadoConsulta.moveToNext()){
                 val idRecordatorio = resultadoConsulta.getInt(resultadoConsulta.getColumnIndex(COL_ID_RECORDATORIO))
@@ -101,6 +101,16 @@ class RecordatoriosDB(context: Context):SQLiteOpenHelper(context, NOMBRE_BD,null
         }
         db.close()
         return misMascotas
+    }
+    fun actualizarRecordatorio ( idRecordatorio : Int,nombreRecordatorio : String, fechaReceta : String , horario : String, nombreMascota : String) : Int{
+    val db = writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COL_NOMBRE_RECORDATORIO, nombreRecordatorio)
+        contentValues.put(COL_FECHA, fechaReceta)
+        contentValues.put(COL_HORARIO, horario)
+        contentValues.put(COL_NOMBRE_MASCOTA, nombreMascota)
+        val resultado = db.update(NOMBRE_TABLA,contentValues,"$COL_ID_RECORDATORIO=?", arrayOf(idRecordatorio.toString()))
+        return resultado
     }
     /*
     @SuppressLint("Range")

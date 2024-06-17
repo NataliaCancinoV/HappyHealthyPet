@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragmentos.VaccineFragment"
     android:orientation="vertical"
     android:background="@color/pink">
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,5 +18,23 @@
         android:textStyle="bold"
         android:layout_margin="20dp"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_vacunas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_recycler_recordatorio"/>
 
-</LinearLayout>
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_agregar_recordatorio_vacuna"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginTop="580dp"
+        android:src="@drawable/plus_circle"
+        android:tint="@color/white"
+        android:backgroundTint="@color/white"
+        android:layout_marginBottom="15dp"/>
+
+</FrameLayout>

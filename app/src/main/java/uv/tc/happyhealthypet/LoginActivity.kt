@@ -11,13 +11,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import uv.tc.happyhealthypet.databinding.ActivityLoginBinding
+import uv.tc.happyhealthypet.modelo.MascotasDB
 import uv.tc.happyhealthypet.modelo.UsuariosDB
 import java.util.zip.Inflater
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var usuariosDB: UsuariosDB
-
+    private lateinit var mascotasDB: MascotasDB
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
@@ -26,6 +27,8 @@ class LoginActivity : AppCompatActivity() {
         usuariosDB = UsuariosDB(this@LoginActivity)
 
         setContentView(view)
+        mascotasDB= MascotasDB(this@LoginActivity)
+        mascotasDB.crearTabla()
         cargarCredenciales()
 
         binding.btnIniciarSesion.setOnClickListener {
@@ -56,21 +59,25 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun cargarCredenciales(){
-        val archivoPreferenciasDefault = getPreferences(Context.MODE_PRIVATE)
+        val archivoPreferenciasDefault = getSharedPreferences("datosLogin",Context.MODE_PRIVATE)
+        val correoShared = archivoPreferenciasDefault.getString("correo","")
         binding.etCorreo.setText(archivoPreferenciasDefault.getString("correo",""))
+        Toast.makeText(this@LoginActivity, "CORREO SHARED : ${correoShared}", Toast.LENGTH_SHORT).show()
         binding.etContrasena.setText(archivoPreferenciasDefault.getString("password",""))
         if (archivoPreferenciasDefault.getBoolean("guardar",false))
             binding.cbRecordarCuenta.isChecked = true
     }
 
     fun guardarCredenciales(correo: String, password: String, guardado: Boolean){
-        val archivoPreferenciasDefault = getPreferences(Context.MODE_PRIVATE)
+        val archivoPreferenciasDefault = getSharedPreferences("datosLogin",Context.MODE_PRIVATE)
         with(archivoPreferenciasDefault.edit()){
             putString("correo", correo)
             putString("password", password)
             putBoolean("guardar",guardado)
             apply()
         }
+        Toast.makeText(this@LoginActivity,"CREDENCIALES GUARDADAS",Toast.LENGTH_SHORT).show()
+
     }
 
     fun verificarCredenciales(correo: String, password: String):Boolean{

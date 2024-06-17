@@ -27,8 +27,7 @@
                 android:text="Nombre recordatorio"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                android:textSize="20dp"
-                android:layout_margin="10dp"/>
+                android:textSize="20dp" />
             <ImageButton
                 android:id="@+id/img_btn_edit"
                 android:layout_width="wrap_content"
@@ -37,6 +36,35 @@
                 android:layout_gravity="right"
                 android:src="@drawable/pencil"
                 android:background="@android:color/transparent"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_nombre_recordatorio_recycler"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre:"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"/>
+
+            <EditText
+                android:id="@+id/et_nombre_recordatorio_recycler_recuperada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="10dp"/>
         </LinearLayout>
 
 
@@ -83,8 +111,8 @@
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"/>
 
             <EditText
                 android:id="@+id/et_horario_recordatorio_recycler_recuperada"
@@ -93,7 +121,7 @@
                 android:text=""
                 android:textColor="@color/black"
                 android:textSize="20dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="1dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginLeft="10dp"/>
         </LinearLayout>

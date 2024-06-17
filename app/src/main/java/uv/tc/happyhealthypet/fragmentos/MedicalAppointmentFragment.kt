@@ -1,34 +1,28 @@
 package uv.tc.happyhealthypet.fragmentos
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import uv.tc.happyhealthypet.R
+import uv.tc.happyhealthypet.adaptadores.RecycleRecordatorioAdapter
+import uv.tc.happyhealthypet.interfaces.ListenerRecyclerRecordatorios
+import uv.tc.happyhealthypet.modelo.RecordatoriosDB
+import uv.tc.happyhealthypet.poko.Recordatorio
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [MedicalAppointmentFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class MedicalAppointmentFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+class MedicalAppointmentFragment : Fragment(), ListenerRecyclerRecordatorios {
+    private lateinit var recordatoriosDB: RecordatoriosDB
+    private lateinit var listaRecordatorios: ArrayList<Recordatorio>
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: RecycleRecordatorioAdapter
+    private var contador = 1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,23 +32,69 @@ class MedicalAppointmentFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_medical_appointment, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MedicalAppointmentFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MedicalAppointmentFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        recordatoriosDB = RecordatoriosDB(requireContext())
+        val archivoPreferenciasDefault = requireContext().getSharedPreferences("datosLogin", Context.MODE_PRIVATE)
+        val correoShared = archivoPreferenciasDefault.getString("correo","")
+
+        recyclerView = view.findViewById(R.id.recycler_consultas)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        listaRecordatorios = arrayListOf<Recordatorio>()
+        listaRecordatorios = recordatoriosDB.obtenerRecordatorios(correoShared.toString(),"Consultas")
+        var recordatorio = Recordatorio(null,correoShared.toString(),1,"Consultas",
+            "Kia","ConsultaDefault","12:00","10/07/2024")
+        val btnAgregarConsulta : FloatingActionButton = view.findViewById(R.id.btn_agregar_recordatorio)
+
+        btnAgregarConsulta.setOnClickListener {
+            listaRecordatorios.add(recordatorio)
+            adapter= RecycleRecordatorioAdapter(listaRecordatorios,false, this)
+            recyclerView.adapter = adapter
+            val resultado = recordatoriosDB.agregarRecordatorio(recordatorio)
+            if(resultado>0){
+                Toast.makeText(requireContext(),"RECORDATORIO CONSULTA AGREGADO", Toast.LENGTH_SHORT).show()
+            }else{
+                Toast.makeText(requireContext(),"ERROR AL AGREGAR RECORDATORIO", Toast.LENGTH_SHORT).show()
             }
+        }
     }
+    override fun onResume() {
+        super.onResume()
+        adapter= RecycleRecordatorioAdapter(listaRecordatorios,false, this)
+        recyclerView.adapter = adapter
+    }
+
+    override fun clicEditarRecordatorio(
+        position: Int,
+        nombreRecordatorio: String,
+        fechaRecordatorio: String,
+        horarioRecordatorio: String,
+        nombreMascota: String
+    ) {
+        adapter= RecycleRecordatorioAdapter(listaRecordatorios,true, this)
+        recyclerView.adapter = adapter
+        val recordatorio = listaRecordatorios[position]
+        Toast.makeText(requireContext(), "ID DEL RECORDATORIO : ${recordatorio.id}", Toast.LENGTH_SHORT).show()
+        val archivoPreferenciasDefault = requireContext().getSharedPreferences("datosLogin", Context.MODE_PRIVATE)
+        val correoShared = archivoPreferenciasDefault.getString("correo","")
+        if(contador%2==0){
+            // Toast.makeText(requireContext(), "DATOS NUEVOS GUARDADOS", Toast.LENGTH_SHORT).show()
+            val nuevoRecodatorio = recordatoriosDB.actualizarRecordatorio(recordatorio.id!!,nombreRecordatorio,fechaRecordatorio,horarioRecordatorio, nombreMascota )
+            if(nuevoRecodatorio>0){
+                Toast.makeText(requireContext(), "DATOS EDITADOS CORRECTAMENTE", Toast.LENGTH_SHORT).show()
+            }else{
+                Toast.makeText(requireContext(), "ERROR AL EDITAR DATOS", Toast.LENGTH_SHORT).show()
+            }
+        }else{
+            Toast.makeText(requireContext(), "DATOS PARA EDITAR", Toast.LENGTH_SHORT).show()
+
+        }
+        contador++
+    }
+
+    override fun clicEliminarRecordatorio(idRecordatorio: Recordatorio, position: Int) {
+
+    }
+
+
 }

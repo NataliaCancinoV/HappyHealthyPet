@@ -181,11 +181,13 @@
             android:layout_alignStart="@+id/et_fecha_nacimiento">
 
             <ImageButton
+                android:id="@+id/btn_agregar_mascota_bd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/plus_circle"
                 android:background="@android:color/transparent"/>
             <ImageButton
+                android:id="@+id/btn_editar_mascota"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/pencil"

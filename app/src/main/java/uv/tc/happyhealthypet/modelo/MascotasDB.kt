@@ -73,8 +73,8 @@ class MascotasDB(context: Context):SQLiteOpenHelper(context, NOMBRE_BD,null, VER
     }
 
     @SuppressLint("Range")
-    fun obtenerMascotas() : List<Mascota> {
-        val misMascotas = mutableListOf<Mascota>()
+    fun obtenerMascotas() : ArrayList<Mascota> {
+        val misMascotas = ArrayList<Mascota>()
         val db = readableDatabase
         val resultadoConsulta : Cursor = db.query(NOMBRE_TABLA, null, null, null, null, null, null)
         if (resultadoConsulta != null){

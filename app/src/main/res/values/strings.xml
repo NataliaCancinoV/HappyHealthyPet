@@ -54,6 +54,8 @@
     <string name="tv_vacunas">Vacunas</string>
     <string name="tv_fecha_vacunas">Fecha:</string>
     <string name="tv_horario_vacunas">Horario:</string>
+    <!-- fragment _ medical_appointment -->
+    <string name="tv_consulta">Cosultas</string>
 
     <!-- activity_food -->
     <string name="tv_comida">Mi mascota puede comer...?</string>

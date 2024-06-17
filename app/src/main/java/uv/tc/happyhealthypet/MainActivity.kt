@@ -1,5 +1,6 @@
 package uv.tc.happyhealthypet
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -18,16 +19,21 @@ import uv.tc.happyhealthypet.fragmentos.VaccineFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var correo: String
+    private  var correo=""
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        correo = intent.getStringExtra("correo")!!
+        //val archivoPreferenciasDefault = getPreferences(Context.MODE_PRIVATE)
+        val archivoPreferenciasDefault = getSharedPreferences("datosLogin",Context.MODE_PRIVATE)
+        val correoShared = archivoPreferenciasDefault.getString("correo","")
+        Toast.makeText(this, "CORREO SHARED MAIN : ${correoShared}", Toast.LENGTH_SHORT).show()
 
-        Toast.makeText(this,"correo $correo", Toast.LENGTH_LONG).show()
+       // correo = intent.getStringExtra("correo")!!
+
+       // Toast.makeText(this,"correo $correo", Toast.LENGTH_LONG).show()
         val medicinesFragment = MedicineFragment()
         val vaccineFragment = VaccineFragment()
         val medicalAppointmentFragment = MedicalAppointmentFragment()
@@ -73,25 +79,6 @@ class MainActivity : AppCompatActivity() {
         Log.i("Ciclo", "Dentro del metodo onResume de la actividad")
     }
 
-    override fun onPause() {
-        super.onPause()
-        Log.i("Ciclo", "Dentro del metodo onPause de la actividad")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.i("Ciclo","Dentro del metodo onStop de la actividad")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.i("Ciclo","Dentro del metodo onDestroy de la actividad")
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-        Log.i("Ciclo", "Dentro del metodo onRestart de la actividad")
-    }
 
     fun navDrawer(){
         val intent = Intent(this@MainActivity, NavActivity::class.java)
@@ -102,8 +89,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun setCurrentFragment(fragment: Fragment){
         val bundle = Bundle()
-        bundle.putString("correo", "correoholl")
+        bundle.putString("correo", correo)
         fragment.arguments=bundle
+        Toast.makeText(this@MainActivity, "BUNGLE CORREO:  ${correo}", Toast.LENGTH_SHORT).show()
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container_view, fragment).addToBackStack(null).commit()
     }
 
