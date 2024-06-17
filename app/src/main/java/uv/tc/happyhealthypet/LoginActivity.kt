@@ -33,7 +33,7 @@ class LoginActivity : AppCompatActivity() {
             val contrasena = binding.etContrasena.text.toString()
 
             if (verificarCredenciales(correo,contrasena)==true){
-                //if (usuariosDB.validarUsuario(correo,contrasena)==true){
+                if (usuariosDB.validarUsuario(correo,contrasena)==true){
                     if (binding.cbRecordarCuenta.isChecked)
                         guardarCredenciales(correo, contrasena, true)
                     else
@@ -41,10 +41,10 @@ class LoginActivity : AppCompatActivity() {
 
                     Toast.makeText(this@LoginActivity, "Inicio de sesión exitoso", Toast.LENGTH_LONG).show()
                     irPantallaInicio(correo)
-                //}
+                }else{
+                    Toast.makeText(this@LoginActivity, "Datos incorrectos", Toast.LENGTH_LONG).show()
+                }
 
-            } else{
-                Toast.makeText(this@LoginActivity, "Datos incorrectos", Toast.LENGTH_LONG).show()
             }
         }
 
@@ -90,7 +90,7 @@ class LoginActivity : AppCompatActivity() {
         val intent = Intent(this@LoginActivity, MainActivity::class.java)
         intent.putExtra("correo", binding.etCorreo.text.toString())
         startActivity(intent)
-        //finish()
+        finish()
     }
 
     fun irPantallaRegistro(){

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_medicamentos"
+        android:title="Medicina"
+        android:icon="@drawable/pill"/>
+
+    <item
+        android:id="@+id/nav_vacunas"
+        android:title="Vacunas"
+        android:icon="@drawable/needle"/>
+
+    <item
+        android:id="@+id/nav_consultas"
+        android:title="Consultas"
+        android:icon="@drawable/calendar"/>
+
+    <item
+        android:id="@+id/nav_recomendaciones"
+        android:title="Recomendaciones"
+        android:icon="@drawable/book_open_variant"/>
+
+    <item
+        android:id="@+id/nav_croquetas"
+        android:title="Croquetas"
+        android:icon="@drawable/bone"/>
+</menu>

@@ -18,10 +18,10 @@ class UsuariosDB(contexto: Context) : SQLiteOpenHelper(contexto, NOMBRE_BD,null,
         private const val COL_PASSWORD = "Contrasena"
     }
     override fun onCreate(p0: SQLiteDatabase?) {
-        val CREATE_TABLE_USUARIOS = ("CREATE TABLE $NOMBRE_TABLA ("+
+        val CREATE_TABLE_USUARIOS = "CREATE TABLE $NOMBRE_TABLA ("+
                 "$COL_CORREO TEXT PRIMARY KEY, " +
                 "$COL_NOMBRE TEXT, " +
-                "$COL_PASSWORD TEXT ") //La primera vez que se crea la base de datos al no estar creada ni instalada
+                "$COL_PASSWORD TEXT )" //La primera vez que se crea la base de datos al no estar creada ni instalada
 
         val values = ContentValues().apply {
             put(COL_CORREO, "nat@gmail.com")
@@ -33,6 +33,14 @@ class UsuariosDB(contexto: Context) : SQLiteOpenHelper(contexto, NOMBRE_BD,null,
 
     override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
 
+    }
+
+    fun crearTabla(){
+        val db = writableDatabase
+        val valor = db.execSQL("CREATE TABLE IF NOT EXISTS $NOMBRE_TABLA("+
+                "$COL_CORREO TEXT PRIMARY KEY, " +
+                "$COL_NOMBRE TEXT, " +
+                "$COL_PASSWORD TEXT )")
     }
 
     fun validarUsuario(correo: String, password: String): Boolean{
@@ -49,7 +57,7 @@ class UsuariosDB(contexto: Context) : SQLiteOpenHelper(contexto, NOMBRE_BD,null,
         return valido
     }
 
-    fun agrergarUsuario(usuario: Usuario) : Long{
+    fun agregarUsuario(usuario: Usuario) : Long{
         val db = writableDatabase
         //Programacion Funcional para Kotlin
         val valoresInsert = ContentValues().apply {

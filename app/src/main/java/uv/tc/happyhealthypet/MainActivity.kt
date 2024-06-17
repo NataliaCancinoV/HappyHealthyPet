@@ -7,7 +7,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
 import uv.tc.happyhealthypet.databinding.ActivityMainBinding
+import uv.tc.happyhealthypet.fragmentos.CroquetasFragment
+import uv.tc.happyhealthypet.fragmentos.MedicalAppointmentFragment
+import uv.tc.happyhealthypet.fragmentos.MedicineFragment
+import uv.tc.happyhealthypet.fragmentos.RecommendationsFragment
+import uv.tc.happyhealthypet.fragmentos.VaccineFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -17,7 +23,40 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        navDrawer()
+
+        val medicinesFragment = MedicineFragment()
+        val vaccineFragment = VaccineFragment()
+        val medicalAppointmentFragment = MedicalAppointmentFragment()
+        val recommendationsFragment = RecommendationsFragment()
+        val croquetasFragment = CroquetasFragment()
+
+        binding.bottomNavigationView.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.nav_medicamentos -> {
+                    setCurrentFragment(medicinesFragment)
+                    true
+                }
+                R.id.nav_vacunas -> {
+                    setCurrentFragment(vaccineFragment)
+                    true
+                }
+                R.id.nav_consultas -> {
+                    setCurrentFragment(medicalAppointmentFragment)
+                    true
+                }
+                R.id.nav_recomendaciones -> {
+                    setCurrentFragment(recommendationsFragment)
+                    true
+                }
+                R.id.nav_croquetas -> {
+                    setCurrentFragment(croquetasFragment)
+                    true
+                }
+                else -> false
+            }
+        }
+
+        //navDrawer()
 
     }
     override fun onStart() {
@@ -55,6 +94,13 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra("navDrawer", "nav")
         startActivity(intent)
         //finish()
+    }
+
+    private fun setCurrentFragment(fragment: Fragment){
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_container_view, fragment)
+            commit()
+        }
     }
 
 }

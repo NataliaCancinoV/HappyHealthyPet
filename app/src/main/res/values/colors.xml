@@ -9,6 +9,8 @@
     <color name="blue_selected">#80B3E8</color>
     <color name="pink_nav_draw">#FFCFF1</color>
     <color name="blue_nav_draw">#D4E9FF</color>
+    <color name="blue_bottom_nav">#A4C5E8</color>
+    <color name="blue_bottom_nav_selected">#FFFFFF</color>
     <color name="grey">#3D3D3D</color>
 
 

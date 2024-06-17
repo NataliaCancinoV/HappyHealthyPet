@@ -51,6 +51,7 @@
     <string name="tv_horario_medicamentos">Horario:</string>
 
     <!-- activity_vaccine -->
+    <string name="tv_vacunas">Vacunas</string>
     <string name="tv_fecha_vacunas">Fecha:</string>
     <string name="tv_horario_vacunas">Horario:</string>
 
