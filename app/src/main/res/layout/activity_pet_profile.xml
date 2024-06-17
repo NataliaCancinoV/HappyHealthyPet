@@ -12,7 +12,8 @@
         android:id="@+id/linear_registro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp">
 
         <LinearLayout
             android:id="@+id/linear_back"
@@ -25,9 +26,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tv_mascota_mascota"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="35dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
+                android:layout_marginBottom="30dp"
                 android:textSize="27sp"
                 android:textStyle="bold"/>
         </LinearLayout>
