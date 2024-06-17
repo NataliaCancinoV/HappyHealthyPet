@@ -47,7 +47,7 @@ class MedicineFragment : Fragment(), ListenerRecyclerRecordatorios {
         recordatoriodDB.crearTabla()
 
         val btnAgregar: FloatingActionButton = view.findViewById(R.id.btn_agregar_recordatorio)
-        val btnAgregarMascota: FloatingActionButton = view.findViewById(R.id.btn_agregar_mascota)
+        val btnAgregarMascota: ImageButton = view.findViewById(R.id.btn_agregar_mascota)
 
 
         recyclerView=view.findViewById(R.id.recycler_medicamentos)

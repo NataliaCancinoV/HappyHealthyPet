@@ -20,15 +20,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="15sp"
-                android:layout_marginBottom="5dp"
-                app:srcCompat="@drawable/arrow_left"
-                android:background="@android:color/transparent"/>
-
             <TextView
                 android:id="@+id/tv_mascota"
                 android:layout_width="wrap_content"
