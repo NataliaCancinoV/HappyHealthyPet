@@ -1,5 +1,6 @@
 package uv.tc.happyhealthypet
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -15,5 +16,16 @@ class RegisterActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         title = getString(R.string.tv_registro)
+
+        binding.imgBtnBack.setOnClickListener(){
+            regresarLogin()
+        }
+    }
+
+    fun regresarLogin(){
+        val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+        intent.putExtra("login","")
+        startActivity(intent)
+        finish()
     }
 }

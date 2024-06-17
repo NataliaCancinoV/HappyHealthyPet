@@ -35,6 +35,20 @@ class UsuariosDB(contexto: Context) : SQLiteOpenHelper(contexto, NOMBRE_BD,null,
 
     }
 
+    fun validarUsuario(correo: String, password: String): Boolean{
+        var valido = false
+        val db = readableDatabase
+        val validarConsulta = "SELECT $COL_CORREO, $COL_PASSWORD " +
+                "FROM $NOMBRE_TABLA WHERE $COL_CORREO='${correo}' " +
+                "AND $COL_PASSWORD='${password}'"
+        val resultadoConsulta = db.rawQuery(validarConsulta, null)
+        if (resultadoConsulta.count>0){
+            valido = true
+        }
+        db.close()
+        return valido
+    }
+
     fun agrergarUsuario(usuario: Usuario) : Long{
         val db = writableDatabase
         //Programacion Funcional para Kotlin

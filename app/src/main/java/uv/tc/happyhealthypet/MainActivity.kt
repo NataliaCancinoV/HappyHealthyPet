@@ -17,8 +17,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        //navDrawer()
-        irLoginActividad()
+        navDrawer()
+
     }
     override fun onStart() {
         super.onStart()
@@ -57,10 +57,4 @@ class MainActivity : AppCompatActivity() {
         //finish()
     }
 
-    fun irLoginActividad(){
-        val intent = Intent(this@MainActivity, LoginActivity::class.java)
-        intent.putExtra("login", "log")
-        startActivity(intent)
-        finish()
-    }
 }

@@ -21,6 +21,7 @@
             android:orientation="vertical">
 
             <ImageButton
+                android:id="@+id/img_btn_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
@@ -53,9 +54,9 @@
 
     <RelativeLayout
         android:layout_width="350dp"
-        android:layout_height="599dp"
+        android:layout_height="650dp"
         android:layout_below="@+id/linear_registro"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="30dp"
         android:layout_marginStart="30dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/rl_register_style">
@@ -67,7 +68,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="40dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="40dp"
             android:background="@drawable/et_style"
             android:hint="@string/et_hint_nombre_registro"
             android:padding="20dp" />
@@ -79,7 +80,7 @@
             android:layout_below="@id/et_nombre"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="50dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="40dp"
             android:background="@drawable/et_style"
             android:hint="@string/et_hint_correo_registro"
             android:inputType="textEmailAddress"
@@ -92,7 +93,7 @@
             android:layout_below="@id/et_correo"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="50dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="40dp"
             android:background="@drawable/et_style"
             android:hint="@string/et_hint_contrasena_registro"
             android:inputType="textPassword"
@@ -105,7 +106,7 @@
             android:layout_below="@id/et_contrasena"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="50dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="40dp"
             android:background="@drawable/et_style"
             android:hint="@string/et_hint_confirmar_contrasena_registro"
             android:inputType="textPassword"
@@ -117,7 +118,7 @@
             android:layout_below="@id/et_contrasena_confirmacion"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="60dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="70dp"
             android:text="@string/btn_registrarse_registro"
             android:textSize="15sp"/>
     </RelativeLayout>
