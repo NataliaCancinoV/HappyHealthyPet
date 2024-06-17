@@ -3,6 +3,7 @@ package uv.tc.happyhealthypet
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -17,13 +18,16 @@ import uv.tc.happyhealthypet.fragmentos.VaccineFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var correo: String
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        correo = intent.getStringExtra("correo")!!
 
+        Toast.makeText(this,"correo $correo", Toast.LENGTH_LONG).show()
         val medicinesFragment = MedicineFragment()
         val vaccineFragment = VaccineFragment()
         val medicalAppointmentFragment = MedicalAppointmentFragment()
@@ -33,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.nav_medicamentos -> {
-                    setCurrentFragment(medicinesFragment)
+                    setCurrentFragment(MedicineFragment())
                     true
                 }
                 R.id.nav_vacunas -> {
@@ -97,10 +101,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setCurrentFragment(fragment: Fragment){
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fragment_container_view, fragment)
-            commit()
-        }
+        val bundle = Bundle()
+        bundle.putString("correo", "correoholl")
+        fragment.arguments=bundle
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container_view, fragment).addToBackStack(null).commit()
     }
 
 }

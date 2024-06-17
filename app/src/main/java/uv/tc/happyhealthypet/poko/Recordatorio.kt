@@ -1,7 +1,7 @@
 package uv.tc.happyhealthypet.poko
 
 data class Recordatorio(
-    val id: Int,
+    val id: Int?,
     val correo: String,
     val idMascota: Int,
     val tipoRecordatorio: String,

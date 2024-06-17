@@ -80,7 +80,7 @@ class RecordatoriosDB(context: Context):SQLiteOpenHelper(context, NOMBRE_BD,null
     }
 
     @SuppressLint("Range")
-    fun obtenerRecordatoriosVacunas(correo: String) : List<Recordatorio> {
+    fun obtenerRecordatorios(correo: String) : List<Recordatorio> {
         val misMascotas = mutableListOf<Recordatorio>()
         val db = readableDatabase
         val resultadoConsulta : Cursor = db.query(NOMBRE_TABLA, null, "$COL_CORREO_USUARIO=?", arrayOf(correo), null, null, null)
