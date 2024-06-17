@@ -94,7 +94,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun irPantallaInicio(correo: String){
-        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+        val intent = Intent(this@LoginActivity, PrincipalActivity::class.java)
         intent.putExtra("correo", binding.etCorreo.text.toString())
         startActivity(intent)
         finish()
