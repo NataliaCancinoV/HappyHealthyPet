@@ -56,15 +56,29 @@
                 android:layout_below="@id/et_correo"
                 android:hint="@string/et_hint_contrasena_login"/>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/cb_recordar_cuenta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:padding="5dp"
+                android:text="@string/cb_recordarme_login"/>
+
             <TextView
                 android:id="@+id/tv_olvido_contrasena"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="250dp"
-                android:layout_marginBottom="40dp"
+                android:layout_marginLeft="80dp"
+                android:layout_marginBottom="5dp"
                 android:layout_below="@id/et_contrasena"
                 android:text="@string/et_olvido_contrasena_login"
                 android:textStyle="italic"/>
+        </LinearLayout>
+
 
             <Button
                 android:id="@+id/btn_iniciar_sesion"

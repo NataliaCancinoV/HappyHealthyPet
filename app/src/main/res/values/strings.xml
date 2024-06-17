@@ -11,6 +11,7 @@
     <string name="btn_iniciar_sesion_login">INICIAR SESION</string>
     <string name="tv_no_cuenta_login">¿No tiene una cuenta?</string>
     <string name="tv_registrarse_login">Registrate</string>
+    <string name="cb_recordarme_login">Recuerdame</string>
 
     <!-- activity_register-->
     <string name="tv_registro">Registro</string>
