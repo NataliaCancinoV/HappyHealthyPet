@@ -120,8 +120,4 @@ class MedicineFragment : Fragment(), ListenerRecyclerRecordatorios {
 
     }
 
-    fun onClickScheduledDate(v: View?){
-
-    }
-
 }
