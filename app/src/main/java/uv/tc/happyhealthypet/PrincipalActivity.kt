@@ -88,7 +88,7 @@ class PrincipalActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         when (item.itemId) {
             R.id.nav_home -> setCurrentFragment(HomeFragment())
             R.id.nav_profile -> setCurrentFragment(ProfileFragment())
-            R.id.nav_logout -> Toast.makeText(this, R.string.toast_logout, Toast.LENGTH_LONG).show()
+            //R.id.nav_logout -> Toast.makeText(this, R.string.toast_logout, Toast.LENGTH_LONG).show()
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true

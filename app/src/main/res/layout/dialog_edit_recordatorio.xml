@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/et_nombre_recordatorio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del recordatorio" />
+
+    <EditText
+        android:id="@+id/et_fecha_recordatorio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Fecha del recordatorio"
+        android:focusable="false"
+        android:clickable="true" />
+
+    <EditText
+        android:id="@+id/et_hora_recordatorio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Hora del recordatorio"
+        android:focusable="false"
+        android:clickable="true" />
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Guardar" />
+
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cancelar" />
+</LinearLayout>

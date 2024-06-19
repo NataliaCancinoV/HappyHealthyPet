@@ -50,14 +50,14 @@ class NavActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelected
             R.id.nav_profile -> supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, ProfileFragment()).commit()
 
-            R.id.nav_logout -> {
+            /*R.id.nav_logout -> {
                 Toast.makeText(this, R.string.toast_logout, Toast.LENGTH_LONG).show()
                 // Redirigir a LoginActivity y finalizar la actividad actual
                 val intent = Intent(this, LoginActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
                 finish()
-            }
+            }*/
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true

@@ -17,7 +17,7 @@
             android:icon="@drawable/account_circle"
             android:title="@string/item_nav_profile"/>
 
-        <item
+        <!--<item
             android:title="">
 
             <menu>
@@ -27,7 +27,7 @@
                     android:title="@string/item_nav_logout"/>
             </menu>
 
-        </item>
+        </item>-->
 
     </group>
 

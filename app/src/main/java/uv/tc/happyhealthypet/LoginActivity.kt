@@ -12,6 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import uv.tc.happyhealthypet.databinding.ActivityLoginBinding
 import uv.tc.happyhealthypet.modelo.MascotasDB
+import uv.tc.happyhealthypet.modelo.RecordatoriosDB
 import uv.tc.happyhealthypet.modelo.UsuariosDB
 import java.util.zip.Inflater
 
@@ -19,16 +20,20 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var usuariosDB: UsuariosDB
     private lateinit var mascotasDB: MascotasDB
+    private lateinit var recordatoriosDB: RecordatoriosDB
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         val view = binding.root
 
         usuariosDB = UsuariosDB(this@LoginActivity)
-
+        usuariosDB.crearTabla()
         setContentView(view)
         mascotasDB= MascotasDB(this@LoginActivity)
         mascotasDB.crearTabla()
+        recordatoriosDB= RecordatoriosDB(this@LoginActivity)
+        recordatoriosDB.crearTabla()
+
         cargarCredenciales()
 
         binding.btnIniciarSesion.setOnClickListener {

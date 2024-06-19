@@ -50,7 +50,7 @@
 
     <RelativeLayout
         android:layout_width="350dp"
-        android:layout_height="599dp"
+        android:layout_height="670dp"
         android:layout_below="@+id/linear_registro"
         android:layout_marginTop="19dp"
         android:layout_marginStart="30dp"
@@ -170,6 +170,7 @@
                 android:text="@string/tv_suscripcion_perfil"
                 android:padding="15dp"/>
             <ImageView
+                android:id="@+id/img_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -177,7 +178,16 @@
                 android:src="@drawable/paw"/>
         </LinearLayout>
 
-
+        <Button
+            android:id="@+id/btn_cerrar_sesion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_cerrar_sesion_menu"
+            android:layout_below="@id/linear_suscripcion"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"/>
     </RelativeLayout>
+
 
 </FrameLayout>
